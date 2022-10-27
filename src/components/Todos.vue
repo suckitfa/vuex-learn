@@ -2,7 +2,13 @@
   <div>
     <h3>Todos</h3>
     <div class="todos">
-      <div class="todo"></div>
+      <div 
+        class="todo"
+        v-for="todo in allTodos"
+        v-bind:key="todo.id"
+      >
+      {{todo.title}}
+    </div>
     </div>
   </div>
 </template>
@@ -11,7 +17,10 @@ import { mapGetters } from 'vuex';
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name:"Todos",
-  computed: mapGetters(['allTodos'])
+  computed: mapGetters([
+    // 映射 this.allTodos 未 store.state.allTodos
+    'allTodos'
+  ])
 }
 </script>
 <style>
