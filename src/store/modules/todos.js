@@ -30,8 +30,8 @@ const actions = {
     commit('setTodos',response.data)
   },
   async updateTodo({commit},updTodo) {
-    await axios.put(`https://jsonplaceholder.typicode.com/todos/${updTodo.id}`)
-    commit('updateTodo',updTodo)
+    const response = await axios.put(`https://jsonplaceholder.typicode.com/todos/${updTodo.id}`)
+    commit('updateTodo',response.data)
   }
 };
 const mutations = {
